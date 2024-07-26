@@ -1,0 +1,241 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <meta charset="UTF-8">
+         
+        <style> 
+          body{
+            background-color: rgb(231, 230, 150);
+          }
+            
+          .botones {text-align: center;
+
+
+            }
+            .imagen {
+            margin-left: auto;
+            margin-right: auto;
+            border: 30px solid rgb(122, 122, 122);
+            width: 200px;
+             height: 200px;
+             }
+            
+            .titulo {
+                
+               font-family: Georgia, 'Times New Roman', Times, serif;
+               font-size: 25px;
+                      
+                color: rgb(65, 129, 39);
+                
+                
+                text-shadow: 0px 1px 4px rgb(168, 155, 79);
+                
+                
+            }
+            button {
+              
+               border: 1px solid black;
+               color: rgb(255, 255, 255);
+               padding: 15px 32px;
+               text-align: center;
+               text-decoration: none;
+               display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                text-shadow: 0px 1px 4px rgb(168, 155, 79);
+                
+                }
+           .button1 { background-color: #a02b1c; border-radius: 50%; /* Green */}
+           .button2 {background-color: #a02b1c; border-radius: 50%; } /* Blue */
+            .button3 {background-color:  #a02b1c;border-radius: 50%; } /* Red */ 
+            .button4 { background-color: #a02b1c;border-radius: 50%;  /* tema oscuro */}
+            .button5 { background-color: #29770a; border: 1px solid rgb(0, 0, 0); /* tema claro */}
+            .oculto{display : }
+            #comprar{margin-top: 20px;
+            display: block;}
+            
+            #opciones{
+              display: none;
+            }
+           
+        </style>
+    </head>
+    <body>
+        
+        
+        
+        
+        
+        <div id="energia" class="titulo">energia: 100</div>
+        <div id="dinero" class="titulo">dinero: 0</div>
+        <div id="animo" class="titulo">contento</div>
+        <div class="imagen"><img width="200" id="gato" src="gatonormal.png"></div> 
+        <div class="botones">
+         <button class="button3" input id="BR" onclick="dormir()"> dormir </button>
+         <button class="button1" input id="BR" onclick="jugar()">jugar</button>
+         <button class="button2" input id="BR" onclick="chambear()">trabajar</button> 
+         <button class="button5" input id="compras" onclick="compras()">tienda</button> 
+         
+         <br>
+       
+        </div>
+        <div class = "oculto" id="comprar">
+          <label for="elementos">selecciona</label>
+          <input list="opciones" id="elementos" name="elementos" onclick="mostrarElementos()">
+          <datalist id="opciones">
+            <option value="pene">
+              <option value="sexo">
+          </datalist>
+          
+        </div>
+        
+
+
+
+
+        
+        <script> 
+        var hambre = 100;
+        var animo = 100;
+        var energia = 100;
+        var dinero = 0;
+        function compras(){
+          var mostrarTienda = document.getElementById("comprar")
+          if(mostrarTienda.style.display == "block"){ mostrarTienda.style.display = "none";
+          }
+        }
+        function mostrarElementos(){
+          var opciones= document.getElementById("opciones");
+          opciones.style.display = opciones.style.display === "block" ? "none" : "block";
+
+          
+          }
+        
+       
+        
+
+        
+       function dormir()
+        
+        {
+           if (energia + 30 <= 99){
+           energia = energia + 30;
+           document.getElementById("gato").src ="gato sueño.png";
+            var espera = 3000;
+           
+            setTimeout(function(){var tiempo_imagen = 3000; document.getElementById("gato").src ="gatonormal.png"}, espera);}
+           else if( energia!= 100 & energia + 30 >= 100 ){energia = 100;
+            document.getElementById("gato").src ="gato sueño.png";
+            var espera = 3000;
+           
+            setTimeout(function(){var tiempo_imagen = 3000; document.getElementById("gato").src ="gatonormal.png"}, espera);}
+           else{alert("ya ha dormido mucho")}
+           document.getElementById("energia").innerHTML = "energia: " + energia;
+           
+            
+            
+            
+            
+        }
+        
+        
+        
+         function jugar()
+        {
+           if (energia - 10 >= -1){
+            energia = energia -10;
+           animo = animo + 10;
+          if(animo >= 50){document.getElementById("animo").innerHTML = "contento"; }
+           else if(animo <= 50 & animo >= 1){document.getElementById("animo").innerHTML = "deprimido";
+          }
+        else{alert("te has suicidado")}}
+            else{alert("duerme un poco espabilao")}
+            document.getElementById("energia").innerHTML = "energia: " + energia;
+            
+            document.getElementById("gato").src ="gatojuego.png";
+            var espera = 3000;
+           
+            setTimeout(function(){var tiempo_imagen = 3000; document.getElementById("gato").src ="gatonormal.png"}, espera);
+
+        }
+         // poner alquiler y hambre, que dormir tmb te baje el hambre, tener que pagar comida
+
+
+
+
+         function chambear()
+            {
+              if (energia - 10 >= -1){
+            energia = energia -10;
+          dinero = dinero +10;
+          animo = animo - 15;
+          if(animo >= 50){document.getElementById("animo").innerHTML = "contento"; }
+           else if(animo <= 50 & animo >= 1){document.getElementById("animo").innerHTML = "deprimido";
+          alert("juega o te suicidaras")}
+        else{alert("te has muerto")}}
+            else{alert("duerme un poco espabilao")}
+            
+            document.getElementById("energia").innerHTML = "energia: " + energia;
+            document.getElementById("dinero").innerHTML = "dinero: " + dinero + " pollacoin";
+            document.getElementById("gato").src ="gatochamba.png";
+            var espera = 3000;
+           
+            setTimeout(function(){var tiempo_imagen = 3000; document.getElementById("gato").src ="gatonormal.png"}, espera);
+           
+          
+          }
+    
+    
+    
+    
+    
+            function Verde()
+            {
+                var r = document.getElementById("sliderR").value = "0";
+                var g = document.getElementById("sliderG").value = "255";
+                var b = document.getElementById("sliderB").value = "0";
+                document.getElementById("titulo").style.color = "rgb(" + r + "," + g + "," + b +")";
+            }
+    
+    
+    
+    
+    
+             function temaOscuro()
+        
+                {
+                    
+                  document.body.style.backgroundColor = "rgb(" + 53 + "," + 53 + "," + 53 +")";
+                  document.getElementById("tc").style.color = "rgb(" + 53 + "," + 53 + "," + 53 +")";
+                  document.getElementById("tc").style.border = "1px solid black";
+                  
+                    
+                    
+                    
+                    
+                }
+             
+              function temaClaro()
+        
+                {
+                    
+                  document.body.style.backgroundColor = "rgb(" + 255 + "," + 255 + "," + 255 +")";
+                  
+                    
+                    
+                    
+                    
+                }
+             
+             </script>
+     
+     
+            
+        
+
+    </body>
+
+
+
+</html>
